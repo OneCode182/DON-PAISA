@@ -1,0 +1,121 @@
+/* Estilos base */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #222121;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    background-color: rgb(14, 13, 13); /* Fondo negro total */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centra el contenido vertical y horizontalmente */
+}
+
+/* Fondo con imagen oscurecida al 50% */
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('RUTA_IMAGEN_FONDO'); /* Ruta de la imagen */
+    background-size: cover;
+    background-position: center;
+    opacity: 0.5; /* 50% de opacidad para la imagen */
+    filter: brightness(90%); /* Ajusta el brillo de la imagen para oscurecerla aún más */
+    z-index: -1; /* Colocamos el fondo detrás del contenido */
+}
+
+/* Contenedor spinner */
+.spinner-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px;
+    
+    /* Fondo semi-transparente para el contenedor, ajustamos la opacidad */
+    background-color: rgba(255, 255, 255, 0.65); /* Hacemos el contenedor más transparente (0.5) */
+    
+    /* Desenfoque del fondo detrás del contenedor */
+    backdrop-filter: blur(10px); /* Desenfoque del fondo detrás del contenedor */
+    
+    box-shadow: 0 8px 12px rgba(0,0,0,0.1); /* Sombra suave */
+    position: relative;
+    z-index: 1;
+    width: 80%;  /* Utiliza el 80% del ancho disponible */
+    max-width: 450px; /* Establece un ancho máximo, pero es flexible */
+    min-width: 250px; /* Mínimo ancho para asegurar que no sea muy pequeño */
+    border-radius: 15px; /* Mantener las esquinas redondeadas */
+}
+
+#frase-paisa {
+    font-style: italic;        /* Estilo itálica */
+    /*font-weight: bold;          Hacer la frase en negrita */
+    font-size: 1.1rem;         /* Tamaño de fuente */
+    color: #494c4f;            /* Color gris claro */
+    margin-top: 20px;          /* Espaciado superior */
+}
+
+/* Imagen del restaurante */
+#restaurant-logo {
+    width: 100%;         /* Asegura que la imagen sea responsive y ocupe todo el espacio disponible */
+    max-width: 350px;    /* Aumentamos el tamaño máximo de la imagen */
+    height: auto;        /* Mantiene la proporción de la imagen */
+    object-fit: contain; /* Asegura que la imagen no se deforme */
+    margin-bottom: 15px; /* Espaciado inferior */
+}
+
+/* Spinner de Bootstrap */
+.spinner-border {
+    width: 4rem !important; /* Tamaño del spinner más grande */
+    height: 4rem !important;
+    animation: spinner-border 0.75s linear infinite !important;
+}
+
+/* Ajustes para diferentes tamaños de pantalla */
+@media (max-width: 576px) {
+    .spinner-container {
+        width: 90%; /* El contenedor ocupa más espacio en pantallas pequeñas */
+        max-width: 400px;
+        min-width: 200px; /* Mínimo ancho en pantallas pequeñas */
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    #restaurant-logo {
+        max-width: 250px; /* Ajustamos el tamaño del logo */
+        max-height: 150px;
+    }
+
+    .spinner-border {
+        width: 3.5rem !important; /* Ajustamos el tamaño del spinner */
+        height: 3.5rem !important;
+    }
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.spinner-container {
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Utilidades de Bootstrap extendidas */
+.z-index-1 {
+    z-index: 1;
+}
+
+/* Agregar una animación suave para el texto */
+@keyframes puntosSuspensivos {
+    0% { content: 'Cargando Menú' }
+    33% { content: 'Cargando Menú .' }
+    66% { content: 'Cargando Menú ..' }
+    100% { content: 'Cargando Menú ...' }
+}
